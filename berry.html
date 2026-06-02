@@ -12,8 +12,8 @@
             --candy-pink: #FF6B8A;
             --rose-red: #E55D87;
             --purple-glass: #B866F2;
-            --text-main: #6a022caf;
-            --text-muted: rgba(91, 4, 4, 0.826);
+            --text-main: #b41152d3;
+            --text-muted: rgba(255, 255, 255, 0.744);
             --glass-bg: rgba(243, 154, 178, 0.052); /* Darker for contrast */
             --glass-border: rgba(255, 255, 255, 0.15);
             --input-bg: rgba(255, 255, 255, 0.08);
@@ -21,6 +21,16 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+         body::before {
+         content: '';
+         position: absolute;
+         inset: 0; /* Covers entire card */
+         background: rgba(0, 0, 0, 0.4); /* 80% darkness */
+         z-index: 1; /* Sits above background, below content */
+        border-radius: inherit; /* Matches card's rounded corners */
+        pointer-events: none; /* Lets clicks pass through to inputs/buttons */
+        }
+        /* Main Body and Background*/
         body {
             font-family: 'Inter', sans-serif;
             height: 100vh;
@@ -30,7 +40,7 @@
             align-items: center;
             
             /* Background Image */
-            background: url("SVG4.png");
+            background: url("SVG7.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -57,10 +67,24 @@
             align-items: center;
             padding: 0 8%;
         }
+        .login-card::before {
+         content: '';
+         position: absolute;
+         inset: 0; /* Covers entire card */
+         background: rgba(0, 0, 0, 0.8); /* 80% darkness */
+         z-index: 1; /* Sits above background, below content */
+        border-radius: inherit; /* Matches card's rounded corners */
+        pointer-events: none; /* Lets clicks pass through to inputs/buttons */
+        }
 
+/* Ensure your form content sits ABOVE the dark overlay */
+        .login-card > * {
+          position: relative;
+          z-index: 2;
+            }
         /* --- 3. LEFT SIDE: LOGIN CARD --- */
         .login-card {
-            background: url("SVG5 (1).png");
+            background: url("SVG6.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
